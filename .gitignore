@@ -1,0 +1,9 @@
+# Avval hamma narsani ignore qilamiz
+*
+
+# Endi faqat keraklilarni ruxsat beramiz
+!.gitignore
+!ddl.sql
+!requirements.txt
+!fast_semantic_search.py
+!gemini_test.py
