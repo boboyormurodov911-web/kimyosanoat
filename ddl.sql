@@ -1969,14 +1969,14 @@ create table public.sold_lot -- ushbu jadvalda sotilgan lotlar haqida ma'lumotla
     lot_id                     bigint -- lot id raqami
         constraint vndiwkzxuidnwj2vi48j
             references public.lot(id),
-    measure_unit               varchar(255), -- o'lchov birligi
+    measure_unit               varchar(255), -- o'lchov birligi (тонна - tonnada, килограмм - kilogrammda)
     mfo                        varchar(255), -- bank mfo kodi
     pay_date                   date, -- to'lov sanasi (sanalarni transaction_date va transaction_date_as_date bo'yicha olinshi kerak, pay_date ishlatilmaydi)
     payment_date_deadline      integer, -- to'lov muddati
-    price_per_contract         double precision, -- har bir shartnoma bo'yicha narx (umumiy summa yoki umumiy narx emas!)
+    price_per_contract         double precision, -- har bir shartnoma bo'yicha narx (umumiy summa yoki umumiy narx emas!; umumiy narx uchun transaction_sum ustunidan foydalanish kerak)
     product_group              varchar(255), -- mahsulot guruhi
     product_name               varchar(255), -- mahsulot nomi
-    quantity                   integer, -- sotib olingan lot hajmi
+    quantity                   integer, -- sotib olingan lot hajmi (o'lchov birligi measure_unit ga bog'liq)
     quantity_in_lot            integer, -- umumiy lot hajmi
     seller_address             varchar(255), -- sotuvchi zavod manzili
     seller_inn                 varchar(255), -- sotuvchi zavod INN raqami, organization jadvalining inn ustuni bilan bog'langan (yillik yoki oylik sotilgan yoki to'langan yoki yetkazilgan lotlarning soni yoki narxi so'ralganda ushbu qiymatlarni tanlash kerak, majburiy -> (309341717, 200941518, 200599579, 200002933, 200949269, 206887857);)
