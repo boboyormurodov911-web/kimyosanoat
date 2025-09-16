@@ -1975,7 +1975,7 @@ create table public.sold_lot -- ushbu jadvalda sotilgan lotlar haqida ma'lumotla
     payment_date_deadline      integer, -- to'lov muddati
     price_per_contract         double precision, -- har bir shartnoma bo'yicha narx (umumiy summa yoki umumiy narx emas!; umumiy narx uchun transaction_sum ustunidan foydalanish kerak)
     product_group              varchar(255), -- mahsulot guruhi
-    product_name               varchar(255), -- mahsulot nomi
+    product_name               varchar(255), -- mahsulot nomi (asosiy 4ta kategoriyaga bo'linadi: Ammiakli selitra so'ralganda -> product_name ILIKE '%Аммиачная селитра%', Karbamid so'ralganda -> product_name ILIKE '%Карбамид%', Ammofos so'ralganda -> product_name ILIKE '%Аммофос%', shu 3ta kategoriyadan boshqa mahsulotlarning barchasi 'boshqalar' kategoriyasiga kiradi)
     quantity                   integer, -- sotib olingan lot hajmi (o'lchov birligi measure_unit ga bog'liq)
     quantity_in_lot            integer, -- umumiy lot hajmi
     seller_address             varchar(255), -- sotuvchi zavod manzili
