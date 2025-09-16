@@ -1542,7 +1542,7 @@ create table public.investment -- Ushbu ustunda barcha investitsiyalar haqida ma
 (
     id                 bigint       not null -- ID raqam (primary key)
         primary key,
-    datetime_created   timestamp(6) not null, -- ma'lumot yaratilgan sana va vaqt, bu ustunni umumiy sana sifatida ishlatish kerak
+    datetime_created   timestamp(6) not null, -- ma'lumot yaratilgan sana va vaqt
     datetime_updated   timestamp(6) not null, -- ma'lumot yangilangan sana va vaqt
     april              double precision, -- Aprel oyi uchun investitsiya miqdori
     august             double precision, -- Avgust oyi uchun investitsiya miqdori
