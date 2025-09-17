@@ -647,7 +647,7 @@ create table public.gov_goods -- Ushbu jadvalda davlatga tegishli tovarlar ekspo
     net_mass          double precision, -- sof og'irlik
     organization1name varchar(255), -- chet el tashkiloti
     organization2name varchar(255), -- mahalliy tashkilot
-    organization_tin  varchar(255) -- tashkilot TIN raqami, organization jadvalidagi inn ustuni bilan bog'langan (Tizim tashkilotlari so'ralganda organization jadvalidagi inn ustuni bo'yicha JOIN qilib tekshirish kerak)
+    organization_tin  varchar(255) -- tashkilot TIN raqami, organization jadvalidagi inn ustuni bilan bog'langan (Tizim tashkilotlari so'ralganda organization jadvalidagi inn ustuni bo'yicha JOIN qilib tekshirish kerak: JOIN organization o ON o.inn = gov_goods.organization_tin)
         constraint soldmwidk4bnidq
             references public.organization(inn),
     purpose           varchar(255), -- maqsad
