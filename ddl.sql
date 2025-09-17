@@ -1661,7 +1661,7 @@ create table public.organization_bank_account_saldos -- Ushbu jadvalda tashkilot
     account_name     varchar(255), -- hisob nomi
     account_number   varchar(255), -- hisob raqami (qoldiqlar haqidagi ma'lumotlar so'ralganda kartoteka ma'lumotlari yani account_number usutnidagi 9632 raqami bilan boshlangan qiymatlar olinmaydi(account_number NOT ILIKE '9632%'))
     date             date, -- sana
-    organization_id  bigint -- tashkilot ID raqami
+    organization_id  bigint -- tashkilot ID raqami, organization jadvalidagi id ustuni bilan bog'langan (eng asosiy tashkilotlar id raqamlari -> 1, 2, 3, 4, 5, 6)
         constraint fk_organization_bank_account_saldos_organization
             references public.organization
             on update cascade on delete cascade,
