@@ -628,7 +628,7 @@ create table public.funding_sources -- Ushbu jadvalda moliyalashtirish manbalari
 alter table public.funding_sources
     owner to postgres;
 
-create table public.gov_goods -- Ushbu jadvalda davlatga tegishli tovarlar haqida ma'lumotlar saqlanadi
+create table public.gov_goods -- Ushbu jadvalda davlatga tegishli tovarlar eksporti va importi haqida ma'lumotlar saqlanadi
 (
     id                bigint       not null -- ID raqam (primary key)
         primary key,
