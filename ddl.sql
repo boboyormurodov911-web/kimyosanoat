@@ -639,7 +639,7 @@ create table public.gov_goods -- Ushbu jadvalda davlatga tegishli tovarlar ekspo
         constraint ekdgbeusjwgsbq3jhnjh2e
             references public.product_tiftn_code(code),
     date              varchar(255), -- sana
-    ekim_country      varchar(255) -- eksport yoki import amalga oshirilgan mamlakat kodi (country_code jadvalidagi code ustuni bilan bog'langan)
+    ekim_country      varchar(255) -- eksport yoki import amalga oshirilgan mamlakat kodi, country_code jadvalidagi code ustuni bilan bog'langan (davlatlar haqida ma'lumotlar so'ralganda davlatninig 2 harfli mamlakat kodi bilan tekshirish kerak)
         constraint qorlsijnbuen2323884k3sks
             references public.country_code(code),
     mode              varchar(255), -- rejim (ИМ40 - import, ЭК10 - eksport)
