@@ -647,7 +647,7 @@ create table public.gov_goods -- Ushbu jadvalda davlatga tegishli tovarlar ekspo
     net_mass          double precision, -- sof og'irlik
     organization1name varchar(255), -- chet el tashkiloti
     organization2name varchar(255), -- mahalliy tashkilot
-    organization_tin  varchar(255) -- tashkilot TIN raqami, organization jadvalidagi inn ustuni bilan bog'langan (Tizim tashkilotlariga oid eksport yoki import haqida so'ralganda organization jadvalidagi inn ustuniga JOIN qilib tekshirish kerak: SELECT SUM(gg.value) FROM public.gov_goods gg JOIN public.organization o ON gg.organization_tin = o.inn WHERE mode = 'ИМ40' yoki SELECT SUM(gg.value) FROM public.gov_goods gg JOIN public.organization o ON gg.organization_tin = o.inn WHERE mode = 'ЭК10')
+    organization_tin  varchar(255) -- tashkilot TIN raqami, organization jadvalidagi inn ustuni bilan bog'langan (Tizim tashkilotlariga oid eksport yoki import haqida so'ralganda organization jadvalidagi inn ustuniga JOIN qilib tekshirish kerak: SELECT SUM(gg.value) FROM public.gov_goods gg JOIN public.organization o ON gg.organization_tin = o.inn WHERE mode = 'ИМ40' yoki SELECT SUM(gg.value) FROM public.gov_goods gg JOIN public.organization o ON gg.organization_tin = o.inn WHERE mode = 'ЭК10'. (bu filter kerak emas❌ ->  o.type = 'STATE'))
         constraint soldmwidk4bnidq
             references public.organization(inn),
     purpose           varchar(255), -- maqsad
