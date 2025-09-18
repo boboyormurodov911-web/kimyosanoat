@@ -1,3 +1,5 @@
+-- salom
+
 create table public.agro_fertilizer_demand -- O'gitlarga bo'lgan talablar haqidagi ma'lumotlarni faqatgina sold_lot jadvalidan olish kerak!
 (
     id                 bigint       not null 
