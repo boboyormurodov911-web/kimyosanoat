@@ -630,7 +630,7 @@ create table public.funding_sources -- Ushbu jadvalda moliyalashtirish manbalari
 alter table public.funding_sources
     owner to postgres;
 
-create table public.gov_goods -- Ushbu jadvalda davlatga tegishli tovarlar haqida ma'lumotlar saqlanadi
+create table public.gov_goods -- Ushbu jadvalda davlatga tegishli tovarlar eksporti va importi haqida ma'lumotlar saqlanadi
 (
     id                bigint       not null -- ID raqam (primary key)
         primary key,
@@ -649,12 +649,12 @@ create table public.gov_goods -- Ushbu jadvalda davlatga tegishli tovarlar haqid
     net_mass          double precision, -- sof og'irlik
     organization1name varchar(255), -- chet el tashkiloti
     organization2name varchar(255), -- mahalliy tashkilot
-    organization_tin  varchar(255) -- tashkilot TIN raqami (organization jadvalidagi inn ustuni bilan bog'langan)
+    organization_tin  varchar(255) -- tashkilot TIN raqami, organization jadvalidagi inn ustuni bilan bog'langan (Tizim tashkilotlari so'ralganda organization jadvalidagi inn ustuni bo'yicha JOIN qilib tekshirish kerak: SELECT SUM(gg.value) FROM public.gov_goods gg JOIN public.organization o ON gg.organization_tin = o.inn)
         constraint soldmwidk4bnidq
             references public.organization(inn),
     purpose           varchar(255), -- maqsad
     unit              varchar(255), -- birlik
-    value             double precision, -- qiymat
+    value             double precision, -- qiymat, dollarda ($)
     create_by         bigint, -- yaratuvchi (foydalanuvchi) ID raqami
     date_converted    date -- konvertatsiya qilingan sana
 );
@@ -1663,7 +1663,7 @@ create table public.organization_bank_account_saldos -- Ushbu jadvalda tashkilot
     account_name     varchar(255), -- hisob nomi
     account_number   varchar(255), -- hisob raqami (qoldiqlar haqidagi ma'lumotlar so'ralganda kartoteka ma'lumotlari yani account_number usutnidagi 9632 raqami bilan boshlangan qiymatlar olinmaydi(account_number NOT ILIKE '9632%'))
     date             date, -- sana
-    organization_id  bigint -- tashkilot ID raqami
+    organization_id  bigint -- tashkilot ID raqami (eng asosiy tashkilotlar id raqamlari -> 1: Navoiyazot, 2: Maxam-Chirchiq, 3: Ammofos-Maxam, 4: Dehqonobod kaliy zavodi, 5: Qizilqum fosforit kompleksi, 6: Qo‘ng‘irot soda zavodi)
         constraint fk_organization_bank_account_saldos_organization
             references public.organization
             on update cascade on delete cascade,
@@ -1971,17 +1971,17 @@ create table public.sold_lot -- ushbu jadvalda sotilgan lotlar haqida ma'lumotla
     lot_id                     bigint -- lot id raqami
         constraint vndiwkzxuidnwj2vi48j
             references public.lot(id),
-    measure_unit               varchar(255), -- o'lchov birligi
+    measure_unit               varchar(255), -- o'lchov birligi (тонна - tonnada, килограмм - kilogrammda)
     mfo                        varchar(255), -- bank mfo kodi
     pay_date                   date, -- to'lov sanasi (sanalarni transaction_date va transaction_date_as_date bo'yicha olinshi kerak, pay_date ishlatilmaydi)
     payment_date_deadline      integer, -- to'lov muddati
-    price_per_contract         double precision, -- har bir shartnoma bo'yicha narx (umumiy summa yoki umumiy narx emas!)
+    price_per_contract         double precision, -- har bir shartnoma bo'yicha narx (umumiy summa yoki umumiy narx emas!; umumiy narx uchun transaction_sum ustunidan foydalanish kerak)
     product_group              varchar(255), -- mahsulot guruhi
-    product_name               varchar(255), -- mahsulot nomi
-    quantity                   integer, -- sotib olingan lot hajmi
+    product_name               varchar(255), -- mahsulot nomi (ustun qiymatlari rus tilida shuning uchun shunaqa filter qilish kerak: Ammiakli selitra -> product_name ILIKE '%Аммиачная селитра%', Karbamid -> product_name ILIKE '%Карбамид%', Ammofos -> product_name ILIKE '%Аммофос%'; qolgan barcha mahsulotlar 'boshqalar' kategoriyasiga kiradi)
+    quantity                   integer, -- sotib olingan lot hajmi (o'lchov birligi measure_unit ga bog'liq)
     quantity_in_lot            integer, -- umumiy lot hajmi
     seller_address             varchar(255), -- sotuvchi zavod manzili
-    seller_inn                 varchar(255), -- sotuvchi zavod INN raqami, organization jadvalining inn ustuni bilan bog'langan (yillik yoki oylik sotilgan yoki to'langan yoki yetkazilgan lotlarning soni yoki narxi so'ralganda ushbu qiymatlarni tanlash kerak, majburiy -> (309341717, 200941518, 200599579, 200002933, 200949269, 206887857);)
+    seller_inn                 varchar(255), -- sotuvchi zavod INN raqami, organization jadvalining inn ustuni bilan bog'langan (yillik yoki oylik sotilgan yoki to'langan yoki yetkazilgan lotlarning soni yoki narxi so'ralganda ushbu qiymatlarni tanlash kerak, majburiy -> (309341717, 200941518, 200599579, 200002933, 200949269, 206887857))
     seller_name                varchar(255), -- sotuvchi zavod nomi 
     session                    integer, -- sessiya raqami (0: aniqlanmagan, 1: soat 13:00 gacha, 2: soat 13:00 dan keyin)
     start_price                double precision, -- boshlang'ich narx
@@ -1992,7 +1992,7 @@ create table public.sold_lot -- ushbu jadvalda sotilgan lotlar haqida ma'lumotla
     product_group_name         varchar(255), -- mahsulot guruhi nomi
     transaction_date_as_date   date, -- tranzaksiya sanasi (ma'lumot turi 'date' ko'rinishida; asosiy sanalar bo'yicha ustun)
     real_quantity              double precision, -- bu quantity summa chiqarishda ishlatiladi (formulasi: quantity_in_lot / quantity.)
-    mxik_code                  varchar(255) -- mahsulot MXIK kodi, product jadvalining mxik_code ustuni bilan bog'langan (O'g'itlarga bo'lgan talab respublik yoki hududlar bo'yicha so'ralganda shu qiymatlar orqali tanlash kerak -> (Azotli o'g'itlar -> 03102999999000000, 03102002001000000, 03102001002000000; Fosforli o'g'itlar -> 03103001002000000; Kaliyli o'g'itlar -> 03104001001000000;))
+    mxik_code                  varchar(255) -- mahsulot MXIK kodi, product jadvalining mxik_code ustuni bilan bog'langan; O'gitlar haqida so'rov kelganda ushbu ustundan, mahsulot haqida so'rov kelganda product_name ustunidan ma'umot olish kerak; O'g'itlarga oid so'rov kelganda ushbu qiymatlarni tanlash kerak -> (Azotli o'g'itlar -> 03102999999000000, 03102002001000000, 03102001002000000; Fosforli o'g'itlar -> 03103001002000000; Kaliyli o'g'itlar -> 03104001001000000;)
         constraint ckw8n48vcn238hjbui2hj8j
             references public.product(mxik_code),
     real_quantity_for_amount   double precision, -- bu real_quantity ni chiqarishda ishlatiladi (if measure_unit = тонна then real_quantity_for_amount = quantity_in_lot, if measure_unit = килограмм then real_quantity_for_amount = quantity_in_lot / 1000) 
