@@ -1990,7 +1990,7 @@ create table public.sold_lot -- ushbu jadvalda sotilgan lotlar haqida ma'lumotla
     product_group_name         varchar(255), -- mahsulot guruhi nomi
     transaction_date_as_date   date, -- tranzaksiya sanasi (ma'lumot turi 'date' ko'rinishida; asosiy sanalar bo'yicha ustun)
     real_quantity              double precision, -- bu quantity summa chiqarishda ishlatiladi (formulasi: quantity_in_lot / quantity.)
-    mxik_code                  varchar(255) -- mahsulot MXIK kodi, product jadvalining mxik_code ustuni bilan bog'langan; O'gitlar haqida so'rov kelganda ushbu ustundan, mahsulot haqida so'rov kelganda product_name ustunidan ma'umot olish kerak; O'g'itlarga oid so'rov kelganda ushbu qiymatlarni tanlash kerak -> (Azotli o'g'itlar -> 03102999999000000, 03102002001000000, 03102001002000000; Fosforli o'g'itlar -> 03103001002000000; Kaliyli o'g'itlar -> 03104001001000000;)
+    mxik_code                  varchar(255) -- mahsulot MXIK kodi, product jadvalining mxik_code ustuni bilan bog'langan; O'gitlar haqida so'rov kelganda ushbu ustundan, mahsulot haqida so'rov kelganda product_name ustunidan ma'umot olish kerak; O'g'itlarga oid so'rov kelganda ushbu qiymatlarni tanlash kerak -> (Azotli o'g'itlar = ('03102999999000000', '03102002001000000', '03102001002000000') Fosforli o'g'itlar = ('03103001002000000') Kaliyli o'g'itlar = ('03104001001000000'))
         constraint ckw8n48vcn238hjbui2hj8j
             references public.product(mxik_code),
     real_quantity_for_amount   double precision, -- bu real_quantity ni chiqarishda ishlatiladi (if measure_unit = тонна then real_quantity_for_amount = quantity_in_lot, if measure_unit = килограмм then real_quantity_for_amount = quantity_in_lot / 1000) 
