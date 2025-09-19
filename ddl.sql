@@ -1979,7 +1979,7 @@ create table public.sold_lot -- ushbu jadvalda sotilgan lotlar haqida ma'lumotla
     quantity                   integer, -- sotib olingan lot hajmi (o'lchov birligi measure_unit ga bog'liq)
     quantity_in_lot            integer, -- umumiy lot hajmi
     seller_address             varchar(255), -- sotuvchi zavod manzili
-    seller_inn                 varchar(255), -- sotuvchi zavod INN raqami, organization jadvalining inn ustuni bilan bog'langan (yillik yoki oylik sotilgan yoki to'langan yoki yetkazilgan lotlarning soni yoki narxi so'ralganda ushbu qiymatlarni tanlash kerak, majburiy -> (309341717, 200941518, 200599579, 200002933, 200949269, 206887857))
+    seller_inn                 varchar(255), -- sotuvchi zavod INN raqami, organization jadvalining inn ustuni bilan bog'langan (yillik yoki oylik sotilgan yoki to'langan yoki yetkazilgan lotlarning soni yoki narxi so'ralganda ushbu qiymatlarni tanlash kerak, majburiy -> (309341717, 200941518, 200599579, 200002933, 200949269, 206887857), o'g'itlar so'ralganda esa umumiy jadvaldagi barcha ma'lumotlarni olish kerak!)
     seller_name                varchar(255), -- sotuvchi zavod nomi 
     session                    integer, -- sessiya raqami (0: aniqlanmagan, 1: soat 13:00 gacha, 2: soat 13:00 dan keyin)
     start_price                double precision, -- boshlang'ich narx
