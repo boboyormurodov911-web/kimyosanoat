@@ -1,27 +1,27 @@
-create table public.agro_fertilizer_demand -- O'gitlarga bo'lgan talablar haqidagi ma'lumotlarni faqatgina sold_lot jadvalidan olish kerak!
+create table public.agro_fertilizer_demand -- O'gitlarga bo'lgan talablar haqidagi ma'lumotlarni faqatgina public.sold_lot jadvalidan olish kerak!
 (
     id                 bigint       not null 
-        primary key, -- id raqam (primary key)
-    create_by          bigint, -- yaratuvchi (foydalanuvchi) id raqami
-    datetime_created   timestamp(6) not null, -- ma'lumot yaratilgan sana va vaqt, bu ustunni umumiy sana sifatida ishlatish kerak
-    datetime_updated   timestamp(6) not null, -- ma'lumot yangilangan sana va vaqt
-    amofos_amount      double precision, -- amofos miqdori
-    amofos_delivery    double precision, -- yetkazib berilgan amofos miqdori
-    boshqalar_delivery double precision, -- yetkazib berilgan boshqa o'g'itlar miqdori
-    district_name      varchar(255), -- tuman nomi
-    farmer_name        varchar(255), -- fermer xo'jaligi nomi
-    harvest_name       varchar(255), -- hosil nomi
-    has_farmer_data    boolean, -- fermer ma'lumotlari mavjudligi (true/false)
-    karbamid_amount    double precision, -- karbamid miqdori
-    karbamid_delivery  double precision, -- yetkazib berilgan karbamid miqdori
-    outline_bonitet    double precision, -- yerning bonitet balli
-    region_name        varchar(255) -- viloyat nomi (region jadvalining name_uz ustuni bilan bog'liq)
+        primary key,
+    create_by          bigint,
+    datetime_created   timestamp(6) not null,
+    datetime_updated   timestamp(6) not null,
+    amofos_amount      double precision,
+    amofos_delivery    double precision,
+    boshqalar_delivery double precision,
+    district_name      varchar(255),
+    farmer_name        varchar(255),
+    harvest_name       varchar(255),
+    has_farmer_data    boolean,
+    karbamid_amount    double precision,
+    karbamid_delivery  double precision,
+    outline_bonitet    double precision,
+    region_name        varchar(255)
         constraint ekw83ksd82jvm32hsjfu2h8w
             references public.region(name_uz),
-    selitra_amount     double precision, -- selitra miqdori
-    selitra_delivery   double precision, -- yetkazib berilgan selitra miqdori
-    text_number        bigint, -- matn raqami
-    total_area         double precision -- umumiy maydon
+    selitra_amount     double precision,
+    selitra_delivery   double precision,
+    text_number        bigint,
+    total_area         double precision
 );
 
 alter table public.agro_fertilizer_demand
