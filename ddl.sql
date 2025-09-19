@@ -1948,7 +1948,7 @@ create table public.shtat -- Ushbu jadvalda tashkilotlarning shtat birliklari ha
 alter table public.shtat
     owner to postgres;
 
-create table public.sold_lot -- ushbu jadvalda sotilgan lotlar haqida ma'lumotlar saqlanadi (sotilgan yoki to'langan yoki yetkazilgan lotlar haqida ma'lumot olish uchun bargain_status va transaction_sum ustunidan foydalan, majburiy!)
+create table public.sold_lot -- ushbu jadvalda sotilgan lotlar haqida ma'lumotlar saqlanadi (sotilgan yoki to'langan yoki yetkazilgan lotlar haqida ma'lumot olish uchun bargain_status va transaction_sum ustunidan foydalan, majburiy!). Yetkazilgan Azotli, Fosforli, Kaliyli o'g'itlarga oid savollar so'ralganda ushbu jadvalning mxik_code ustuni bilan filter qilish kerak!
 (
     id                         bigint       not null -- id raqami
         primary key,
