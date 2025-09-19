@@ -134,7 +134,7 @@ create table public.country_code -- Ushbu jadvalda mamlakatlar kodlari haqida ma
 alter table public.country_code
     owner to postgres;
 
-create table public.crop -- Ushbu jadvalda fermer xo'jaliklarining ekinlari haqida ma'lumotlar saqlanadi
+create table public.crop -- Ushbu jadvalda fermer xo'jaliklarining ekinlari haqida ma'lumotlar saqlanadi (o'g'itlarga bo'lgan talabni hisoblash uchun shu formula asosida hisoblash kerak -> sum(bonitet koeffitsiyenti * ekin bo'yicha baza normasi * ekin maydoni))
 (
     id                             bigint       not null -- id raqam (primary key)
         primary key,
@@ -148,13 +148,13 @@ create table public.crop -- Ushbu jadvalda fermer xo'jaliklarining ekinlari haqi
     harvest_code                   bigint, -- hosil kodi
     harvest_generation_code        integer, -- hosil avlodi kodi
     harvest_generation_name        varchar(255), -- hosil avlodi nomi
-    harvest_name                   varchar(255), -- hosil nomi
+    harvest_name                   varchar(255), -- hosil nomi. ekin bo'yicha baza normasi -> (case when lower(c.harvest_name) like '%paxta%' or lower(c.harvest_name) like '%cotton%' or lower(c.harvest_name) like '%хлопок%' then 230 when lower(c.harvest_name) like '%bug''doy%' or lower(c.harvest_name) like '%bugdoy%' or lower(c.harvest_name) like '%wheat%' or lower(c.harvest_name) like '%пшеница%' then 240 when lower(c.harvest_name) like '%kartoshka%' or lower(c.harvest_name) like '%potato%' or lower(c.harvest_name) like '%картошка%' then 180 else 230 end), fosforli o'g'itlarga bo'lgan talabni hisoblash uchun -> (case when lower(c.harvest_name) like '%paxta%' or lower(c.harvest_name) like '%cotton%' or lower(c.harvest_name) like '%хлопок%' then 289 when lower(c.harvest_name) like '%bug''doy%' or lower(c.harvest_name) like '%bugdoy%' or lower(c.harvest_name) like '%wheat%' or lower(c.harvest_name) like '%пшеница%' then 200 when lower(c.harvest_name) like '%kartoshka%' or lower(c.harvest_name) like '%potato%' or lower(c.harvest_name) like '%картошка%' then 250 else 289 end), kaliyli o'g'itlarga bo'lgan talabni hisoblash uchun esa -> (case when lower(c.harvest_name) like '%paxta%' or lower(c.harvest_name) like '%cotton%' or lower(c.harvest_name) like '%хлопок%' then 150 when lower(c.harvest_name) like '%bug''doy%' or lower(c.harvest_name) like '%bugdoy%' or lower(c.harvest_name) like '%wheat%' or lower(c.harvest_name) like '%пшеница%' then 300 when lower(c.harvest_name) like '%kartoshka%' or lower(c.harvest_name) like '%potato%' or lower(c.harvest_name) like '%картошка%' then 300 else 150 end) kabi filterlarni ishlatish kerak!
     harvest_sort_code              integer, -- hosil navi kodi
     harvest_sort_name              varchar(255), -- hosil navi nomi
     harvest_type_code              varchar(255), -- hosil turi kodi
     harvest_type_name              varchar(255), -- hosil turi nomi
     harvest_year                   integer, -- hosil yig'ib olingan yili
-    outline_bonitet                integer, -- yerning bonitet balli
+    outline_bonitet                integer, -- yerning bonitet balli. bonitet koeffitsiyentini hisoblash -> sum((case when c.outline_bonitet >= 80 then 0.8 when c.outline_bonitet between 60 and 79 then 1.0 when c.outline_bonitet between 40 and 59 then 1.15 when c.outline_bonitet < 40 then 1.25 else 1.0 end)
     outline_bonitet_contour_number integer, -- kontur bonitet raqami
     place_category_code            varchar(255), -- yerdan foydalanish toifasining kodi
     place_category_name            varchar(255), -- yerdan foydalanish toifasining nomi
