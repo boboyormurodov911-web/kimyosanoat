@@ -652,7 +652,7 @@ create table public.gov_goods -- Ushbu jadvalda davlatga tegishli tovarlar ekspo
             references public.organization(inn),
     purpose           varchar(255), -- maqsad
     unit              varchar(255), -- birlik
-    value             double precision, -- qiymat, dollarda ($)
+    value             double precision, -- qiymat, dollarda($), 1000 ga ko'paytirish kerak
     create_by         bigint, -- yaratuvchi (foydalanuvchi) ID raqami
     date_converted    date -- konvertatsiya qilingan sana
 );
