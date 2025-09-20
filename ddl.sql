@@ -117,7 +117,7 @@ create table public.contract_documents -- Ushbu jadvalda shartnoma hujjatlari ha
 alter table public.contract_documents
     owner to postgres;
 
-create table public.country_code -- Ushbu jadvalda mamlakatlar kodlari haqida ma'lumotlar saqlanadi
+create table public.country_code -- Ushbu jadvalda mamlakatlar kodlari haqida ma'lumotlar saqlanadi (Mamlakatlar nomlarini tanlashda short_name ustunidan foydalanish kerak!)
 (
     id               bigint       not null -- ID raqam (primary key)
         primary key,
