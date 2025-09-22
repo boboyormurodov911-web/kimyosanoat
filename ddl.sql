@@ -1598,7 +1598,7 @@ create table public.investment_comment -- Ushbu jadvalda investitsiya izohlariga
 alter table public.investment_comment
     owner to postgres;
 
-create table public.legal_company_account -- Ushbu jadvalda tashkilotlarning soliqlari bo'yicha hisob raqamlari haqida ma'lumotlar saqlanadi
+create table public.legal_company_account -- Ushbu jadvalda tashkilotlarning soliqlari bo'yicha hisob raqamlari haqida ma'lumotlar saqlanadi (soliq to'lovlari bo'yicha ma'lumot organization_bank_account_transactions jadvalidan olinadi. soliq qarzdorliklari bo'yicha ma'lumot legal_entity_debt jadvalidan olinadi.)
 (
     id                bigint       not null -- ID raqam (primary key)
         primary key,
