@@ -1026,7 +1026,7 @@ create table public.organization_1c_balance -- Ushbu jadvalda tashkilotlarning 1
 alter table public.organization_1c_balance
     owner to postgres;
 
-create table public.organization_bank_account_transactions -- Ushbu jadvalda tashkilotlarning bank aylanmalari, soliq to'lovlari va pul o'tkazmalari haqidagi ma'lumotlar saqlanadi
+create table public.organization_bank_account_transactions -- Ushbu jadvalda tashkilotlarning bank aylanmalari, soliq to'lovlari, birja tushumlari va pul o'tkazmalari haqidagi ma'lumotlar saqlanadi
 (
     id               bigint       not null -- ID raqam (primary key)
         primary key,
