@@ -1614,7 +1614,7 @@ create table public.legal_company_account -- Ushbu jadvalda tashkilotlarning sol
     organization_name varchar(255), -- tashkilot nomi
     over_payment      double precision, -- ortiqcha to'lov
     pay_tax           double precision, -- to'lanadigan soliq
-    penya             double precision, -- penya
+    penya             double precision, -- jarima
     prepayment_tax    double precision, -- oldindan to'langan soliq
     region_code       integer, -- viloyat kodi
     report_period     varchar(255), -- hisobot davri
