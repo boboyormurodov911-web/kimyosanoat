@@ -909,7 +909,7 @@ create table public.legal_entity_debt -- Ushbu jadvalda tashkilotlarning soliqda
     datetime_created timestamp(6) not null, -- yaratilgan sana va vaqt
     datetime_updated timestamp(6) not null, -- yangilangan sana va vaqt
     date             varchar(255), -- sana
-    nedoimka         double precision, -- belgilangan muddatda to'lanmagan qarz
+    nedoimka         double precision, -- asosiy qarzdorlik
     ns10code         integer, -- qarzdor tashkilot viloyati kodi (region jadvalining faktura_region_id ustuni bilan bog'langan)
     ns10name         varchar(255), -- qarzdor tashkilot viloyat nomi
     ns11code         integer, -- qarzdor tashkilot tuman kodi (region jadvalining faktura_region_id ustuni bilan bog'langan)
