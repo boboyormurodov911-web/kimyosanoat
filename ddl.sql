@@ -1538,7 +1538,7 @@ create table public.investment_step -- Ushbu jadvalda investitsiya bosqichlari h
 alter table public.investment_step
     owner to postgres;
 
-create table public.investment -- Ushbu ustunda barcha investitsiyalar haqida ma'lumotlar saqlanadi
+create table public.investment -- Ushbu ustunda barcha investitsiyalar haqida ma'lumotlar saqlanadi.
 (
     id                 bigint       not null -- ID raqam (primary key)
         primary key,
