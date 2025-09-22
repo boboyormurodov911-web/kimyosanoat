@@ -1026,7 +1026,7 @@ create table public.organization_1c_balance -- Ushbu jadvalda tashkilotlarning 1
 alter table public.organization_1c_balance
     owner to postgres;
 
-create table public.organization_bank_account_transactions -- Ushbu jadvalda tashkilotlarning bank aylanmalari va pul o'tkazmalari haqidagi ma'lumotlar saqlanadi
+create table public.organization_bank_account_transactions -- Ushbu jadvalda tashkilotlarning bank aylanmalari, soliq to'lovlari va pul o'tkazmalari haqidagi ma'lumotlar saqlanadi
 (
     id               bigint       not null -- ID raqam (primary key)
         primary key,
@@ -1038,7 +1038,7 @@ create table public.organization_bank_account_transactions -- Ushbu jadvalda tas
     date_execute     varchar(255), -- o'tkazma bajarilgan sana
     doc_id           varchar(255), -- hujjat ID raqami
     lead_id          bigint, -- yetakchi ID raqami
-    purpose          text, -- o'tkazma maqsadi
+    purpose          text, -- o'tkazma maqsadi (soliq to'lovlari haqida ma'lumot olish uchun shu ustun ichida 'TAX_ID' qiymati bo'lishini tekshirish kerak -> purpose ILIKE '%$TAX_ID$%')
     rcvr_account     varchar(255), -- qabul qiluvchi hisob raqami
     rcvr_bank        varchar(255), -- qabul qiluvchi bank
     rcvr_inn         varchar(255), -- qabul qiluvchi INN raqami
