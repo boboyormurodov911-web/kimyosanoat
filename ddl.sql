@@ -1039,13 +1039,13 @@ create table public.organization_bank_account_transactions -- Ushbu jadvalda tas
     doc_id           varchar(255), -- hujjat ID raqami
     lead_id          bigint, -- yetakchi ID raqami
     purpose          text, -- o'tkazma maqsadi (soliq to'lovlari haqida ma'lumot olish uchun shu ustun ichida 'TAX_ID' qiymati bo'lishini tekshirish kerak -> purpose ILIKE '%$TAX_ID$%')
-    rcvr_account     varchar(255), -- qabul qiluvchi hisob raqami (soliq to'lovlari faqat ushbu qiymat bilan olinishi kerak -> 23402000300100001010)
+    rcvr_account     varchar(255), -- qabul qiluvchi hisob raqami (soliq to'lovlari faqat ushbu qiymat bilan olinishi kerak -> 23402000300100001010. birja tushumlari bo'yicha shunaqa raqamli hisob raqami bilan tekshirish kerak -> 00600257 (rcvr_account ilike '%00600257%'))
     rcvr_bank        varchar(255), -- qabul qiluvchi bank
     rcvr_inn         varchar(255), -- qabul qiluvchi INN raqami
     rcvr_mfo         varchar(255), -- qabul qiluvchi MFO raqami
     rcvr_name        text, -- qabul qiluvchi nomi
     rcvr_pinfl       varchar(255), -- qabul qiluvchi PINFL raqami
-    sndr_account     varchar(255), -- jo'natuvchi hisob raqami
+    sndr_account     varchar(255), -- jo'natuvchi hisob raqami (birja tushumlari bo'yicha shunaqa raqamli hisob raqami bilan tekshirish kerak -> 00600257 (sndr_account ilike '%00600257%'))
     sndr_bank        varchar(255), -- jo'natuvchi bank
     sndr_inn         varchar(255), -- jo'natuvchi INN raqami
     sndr_mfo         varchar(255), -- jo'natuvchi MFO raqami
