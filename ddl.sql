@@ -902,7 +902,7 @@ create table public.investment_projects -- Ushbu jadvalda investitsiya loyihalar
 alter table public.investment_projects
     owner to postgres;
 
-create table public.legal_entity_debt -- Ushbu jadvalda yuridik shaxs yoki tashkilotlarning soliq qarzdorliklari haqida ma'lumotlar saqlanadi
+create table public.legal_entity_debt -- Ushbu jadvalda tashkilotlarning soliqdan qarzdorliklari haqida ma'lumotlar saqlanadi
 (
     id               bigint       not null -- ID raqam (primary key)
         primary key,
