@@ -1052,7 +1052,7 @@ create table public.organization_bank_account_transactions -- Ushbu jadvalda tas
     sndr_name        text, -- jo'natuvchi nomi
     sndr_pinfl       varchar(255), -- jo'natuvchi PINFL raqami
     state_id         integer, -- holat ID raqami
-    transaction_type varchar(255), -- aylanma turi (debit: tashkilotning chiqim aylanmalari, credit: tashkilotning kirim aylanmalari)
+    transaction_type varchar(255), -- aylanma turi (debit: tashkilotning chiqim aylanmalari, credit: tashkilotning kirim aylanmalari). birja tushumlari so'ralganda barcha aylanma turini tanlash kerak!
     account_number   varchar(255), -- hisob raqami (kirim yoki chiqim haqidagi ma'lumotlar so'ralganda kartoteka ma'lumotlari yani account_number usutnidagi 9632 raqami bilan boshlangan qiymatlar olinmaydi(account_number NOT ILIKE '9632%'))
     organization_id  bigint, -- tashkilot ID raqami (organization jadvalining id ustuni bilan bog'langan; tegishli tashkilot so'ralganda nomi bilan emas organization_id ustuni bilan tekshirish kerak; 1: Navoiyazot, 2: Maxam-Chirchiq, 3: Ammofos-Maxam, 4: Dehqonobod kaliy zavodi, 5: Qizilqum fosforit kompleksi, 6: Qo‘ng‘irot soda zavodi)
     date_as_date     date, -- sana (date tipida)
