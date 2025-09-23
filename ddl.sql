@@ -918,7 +918,7 @@ create table public.legal_entity_debt -- Ushbu jadvalda tashkilotlarning soliqda
     object_name      varchar(255), -- ob'ekt nomi
     penya            double precision, -- jarima
     pereplata        double precision, -- ortiqcha to'lov
-    tin              varchar(255) -- qarzdor tashkilot TIN raqami (organization jadvaliga JOIN qilishda type = 'STATE' bo'lganlarini tekshirish kerak)
+    tin              varchar(255) -- qarzdor tashkilot TIN raqami (agar organization jadvaliga JOIN qilinsa: type = 'STATE' bo'lganlarini tekshirish kerak)
         constraint xiwniinnskwialw209n
             references public.organization(inn),
     create_by        bigint -- yaratuvchi (foydalanuvchi) ID raqami
