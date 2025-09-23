@@ -1720,7 +1720,7 @@ create table public.personal -- Ushbu jadvalda hodimlar haqida ma'lumotlar saqla
     mobile_phone            varchar(255), -- hodimning mobil telefon raqami
     nationality             varchar(255), -- hodimning millati
     organization_name       varchar(255), -- hodimning tashkiloti nomi
-    organization_stir       varchar(255), -- hodimning tashkiloti STIR(inn) raqami ('200599579' = '“Ammofos-Maxam” AJ', '206887857' = '“Dehqonobod kaliy zavodi” AJ', '200941518' = '“Maxam-Chirchiq” AJ', '200002933' = '“Navoiyazot” AJ', '203621367' = '"O'zkimyosanoat" AJ', '309341717' = '“Qizilqum fosforit kompleksi” MChJ') bu ustun bilan tekshirishda albatta type = 'STATE' shartini qo'yish kerak!
+    organization_stir       varchar(255), -- hodimning tashkiloti STIR(inn) raqami (200599579 = 'Ammofos-Maxam', 206887857 = 'Dehqonobod kaliy zavodi', 200941518 = 'Maxam-Chirchiq', 200002933 = 'Navoiyazot', 203621367 = 'O'zkimyosanoat', 309341717 = 'Qizilqum fosforit kompleksi') bu ustun bilan tekshirishda albatta type = 'STATE' shartini qo'yish kerak!
     passport_series_number  varchar(255), -- hodimning pasport seriya raqami
     permanent_address       varchar(255), -- hodimning doimiy manzili
     pinfl                   varchar(255), -- hodimning PINFL raqami
@@ -1750,7 +1750,7 @@ create table public.personal -- Ushbu jadvalda hodimlar haqida ma'lumotlar saqla
     department_id           bigint  -- hodimning bo'lim ID raqami (department jadvalining id ustuni bilan bog'langan)
         constraint fk33i80qi0r82hlhoaern2972c8
             references public.department,
-    status                  varchar(255) -- hodimning ish holati ("Bo`shatilgan", "Ish faoliyatida", "Noma'lum")
+    status                  varchar(255) -- hodimning ish holati ("Bo`shatilgan", "Ish faoliyatida", "Noma'lum") bu ustunni faqat so'ralgan ishlatish kerak!
 );
 
 alter table public.personal
