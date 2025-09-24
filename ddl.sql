@@ -1505,7 +1505,7 @@ create table public.investment_project -- Ushbu jadvalda investitsiya loyihalari
     project_value                varchar(255), -- loyiha qiymati
     projection_amount            double precision, -- prognoz miqdori
     region                       varchar(255), -- viloyat
-    staff                        integer, -- ishchilar
+    staff                        integer, -- ishchilar soni (bu shtat emas, ishchilar soni!)
     tech_staff                   integer, -- texnik ishchilar
     create_by                    bigint, -- yaratuvchi (foydalanuvchi) ID raqami
     expected_stock               double precision, -- kutilgan aksiya
