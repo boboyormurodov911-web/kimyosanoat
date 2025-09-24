@@ -2072,10 +2072,10 @@ alter table public.staff_position
 
 create table public.staff_position_personal -- Ushbu jadvalda ishchilarning lavozimlari va hodimlar haqida ma'lumotlar saqlanadi, tashkilotlardagi ishlaydigan hodimlar sonini chiqarishda ham ushbu jadvaldan foydalanish kerak (Many to Many Table. Bog'langan jadvallarning har ikkalasiga JOIN qilish kerak -> public.staff_position_personal spp JOIN public.staff_position sp ON spp.staff_position_id = sp.id JOIN public.personal p ON spp.personal_id = p.id) 
 (
-    staff_position_id bigint not null -- staff_position jadvalidagi id ustuni bilan bog'langan
+    staff_position_id bigint not null -- staff_position jadvalidagi id ustuni bilan tekshirish kerak
         constraint fkenwbelkxri3j1jo9cxwwhr4ex
             references public.staff_position,
-    personal_id       bigint not null -- personal jadvalidagi id ustuni bilan bog'langan
+    personal_id       bigint not null -- personal jadvalidagi id ustuni bilan tekshirish kerak
         constraint fk4g6cca23bg6rac107ys84xohl
             references public.personal,
     primary key (staff_position_id, personal_id)
