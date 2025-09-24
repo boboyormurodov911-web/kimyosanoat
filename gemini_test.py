@@ -1,7 +1,7 @@
 import requests
 
 
-url = "https://chatai.my-blog.uz/webhook-test/9eb2d83b-a089-4241-8677-831d862789fc"
+url = "http://chatai.my-blog.uz/webhook/2af2f0a6-7106-473c-96d9-f1df92562289"
 url1="http://localhost:5678/webhook/2af2f0a6-7106-473c-96d9-f1df92562289"
 
 
@@ -18,7 +18,7 @@ while True:
         "Content-Type": "application/json"
     }
 
-    response = requests.post(url1,auth=("chemical-industry", "ChemicalPass@123"),  headers=headers,json=payload)
+    response = requests.post(url,auth=("chemical-industry", "ChemicalPass@123"),  headers=headers,json=payload)
 
 
 
