@@ -1898,7 +1898,7 @@ create table public.relatives -- Ushbu jadvalda hodimlarning qarindoshlari haqid
     region_id       bigint -- yashash viloyati (region jadvalining id ustuni bilan bog'langan)
         constraint fk4h0dy43xby5d26kswm5po78dq
             references public.region,
-    is_deleted      boolean default false -- ma'lumot o'chirilgan yoki yo'qligi (qarindoshlarni tanlashda ushbu ustundan foydalanish kerak)
+    is_deleted      boolean default false -- ma'lumot o'chirilgan yoki yo'qligi
 );
 
 alter table public.relatives
