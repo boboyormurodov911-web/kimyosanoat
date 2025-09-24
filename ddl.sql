@@ -1,7 +1,3 @@
-
-
-
-
 create table public.agro_fertilizer_demand -- O'gitlarga bo'lgan talablar haqidagi ma'lumotlarni faqatgina public.crop jadvalidan, yetkazilgan o'g'itlar bo'yicha esa public.sold_lot jadvalidan ma'lumot olish kerak!
 (
     id                 bigint       not null 
