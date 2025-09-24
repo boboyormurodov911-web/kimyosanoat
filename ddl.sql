@@ -2063,7 +2063,7 @@ create table public.staff_position -- Ushbu jadvalda ishchilarning lavozimlari h
     department_id     bigint -- bo'lim ID raqami (department jadvalining id ustuni bilan bog'langan)
         constraint fk2rccfqg11kksq37ku44aforg5
             references public.department,
-    personal_limit    integer, -- ishchilar limiti
+    personal_limit    integer, -- lavozim limiti (tashkilotdagi shtatlar soni so'ralganda ushbu ustunni yig'indisini chiqarish kerak)
     position_id       bigint -- lavozim ID raqami (position jadvalining id ustuni bilan bog'langan)
 );
 
