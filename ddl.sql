@@ -2070,7 +2070,7 @@ create table public.staff_position -- Ushbu jadvalda ishchilarning lavozimlari h
 alter table public.staff_position
     owner to postgres;
 
-create table public.staff_position_personal -- (Many to Many Table. Bog'langan jadvallarning har biriga JOIN qilish kerak) Ushbu jadvalda ishchilarning lavozimlari va hodimlar haqida ma'lumotlar saqlanadi, tashkilotlardagi hodimlar sonini chiqarishda ham ushbu jadvaldan foydalanish kerak 
+create table public.staff_position_personal -- (Many to Many Table. Bog'langan jadvallarning har ikkalasiga JOIN qilish kerak) Ushbu jadvalda ishchilarning lavozimlari va hodimlar haqida ma'lumotlar saqlanadi, tashkilotlardagi hodimlar sonini chiqarishda ham ushbu jadvaldan foydalanish kerak 
 (
     staff_position_id bigint not null -- staff_position jadvalidagi id ustuni bilan bog'langan
         constraint fkenwbelkxri3j1jo9cxwwhr4ex
