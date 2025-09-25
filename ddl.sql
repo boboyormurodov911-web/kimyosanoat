@@ -1720,7 +1720,7 @@ create table public.personal -- Ushbu jadvalda hodimlarning shaxsiy ma'lumotlari
     mobile_phone            varchar(255), -- hodimning mobil telefon raqami
     nationality             varchar(255), -- hodimning millati
     organization_name       varchar(255), -- hodimning tashkiloti nomi
-    organization_stir       varchar(255), -- hodimning tashkiloti STIR(inn) raqami
+    organization_stir       varchar(255), -- hodimning tashkiloti STIR(inn) raqami (hodimlar va ularning qarindoshlari haqida ma'lumot olish uchun faqat ushbu ustundan foydalanish kerak)
     passport_series_number  varchar(255), -- hodimning pasport seriya raqami
     permanent_address       varchar(255), -- hodimning doimiy manzili
     pinfl                   varchar(255), -- hodimning PINFL raqami
