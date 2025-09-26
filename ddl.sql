@@ -1483,7 +1483,7 @@ create table public.department -- Ushbu jadvalda tashkilotlar bo'limlari haqidag
 alter table public.department
     owner to postgres;
 
-create table public.investment_project -- Ushbu jadvalda investitsiya loyihalari haqida ma'lumotlar saqlanadi(Tashkilotlardagi shtatlar sonini staff_position jadvalidan olinadi)
+create table public.investment_project -- Ushbu jadvalda investitsiya loyihalari haqida ma'lumotlar saqlanadi (Tashkilotlardagi shtatlar soni staff_position jadvalidagi personal_limit ustunidagi qiymatlarning yig'indisidan olinishi kerak)
 (
     id                           bigint       not null -- ID raqam (primary key)
         primary key,
@@ -1505,7 +1505,7 @@ create table public.investment_project -- Ushbu jadvalda investitsiya loyihalari
     project_value                varchar(255), -- loyiha qiymati
     projection_amount            double precision, -- prognoz miqdori
     region                       varchar(255), -- viloyat
-    staff                        integer, -- investitsion loyiha bo'yicha ishchilar soni (bu shtat emas, ishchilar soni!)
+    staff                        integer, -- investitsion loyiha bo'yicha ishchilar soni
     tech_staff                   integer, -- investitsion loyiha bo'yicha texnik ishchilar
     create_by                    bigint, -- yaratuvchi (foydalanuvchi) ID raqami
     expected_stock               double precision, -- kutilgan aksiya
