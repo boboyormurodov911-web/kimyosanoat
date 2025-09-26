@@ -1483,7 +1483,7 @@ create table public.department -- Ushbu jadvalda tashkilotlar bo'limlari haqidag
 alter table public.department
     owner to postgres;
 
-create table public.investment_project -- Ushbu jadvalda investitsiya loyihalari haqida ma'lumotlar saqlanadi(so'ralgan ma'lumot bu jadvaldan chiqmasa public.investment_projects jadvalidan qidirish kerak)
+create table public.investment_project -- Ushbu jadvalda investitsiya loyihalari haqida ma'lumotlar saqlanadi(Tashkilotlardagi shtatlar sonini staff_position jadvalidan olinadi)
 (
     id                           bigint       not null -- ID raqam (primary key)
         primary key,
