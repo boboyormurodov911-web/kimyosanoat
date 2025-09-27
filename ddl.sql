@@ -1652,7 +1652,7 @@ create table public.limit_report -- Ushbu jadvalda tashkilotlarning belgilangan 
 alter table public.limit_report
     owner to postgres;
 
-create table public.organization_bank_account_saldos -- Ushbu jadvalda tashkilot va zavodlarning bank hisoblari bo'yicha qoldiqlari saqlanadi. Hisob raqam bo'yicha qoldiqlarni faqat ushub jadvaldan olish kerak
+create table public.organization_bank_account_saldos -- Ushbu jadvalda tashkilot va zavodlarning bank hisoblari bo'yicha qoldiqlari saqlanadi. Hisob raqam bo'yicha qoldiqlarni faqat ushbu jadvaldan olish kerak
 (
     id               bigint       not null -- ID raqam (primary key)
         primary key,
@@ -1665,7 +1665,7 @@ create table public.organization_bank_account_saldos -- Ushbu jadvalda tashkilot
         constraint fk_organization_bank_account_saldos_organization
             references public.organization
             on update cascade on delete cascade,
-    saldo_out        bigint, -- qoldiq miqdori (tiyinda hisoblagan; so'mda chiqarish uchun 100 ga bo'lish kerak)
+    saldo_out        bigint, -- qoldiq miqdori, har doim miqdorning yig'indisni chiqarish kerak (tiyinda hisoblagan; so'mda chiqarish uchun 100 ga bo'lish kerak)
     create_by        bigint -- yaratuvchi (foydalanuvchi) ID raqami
 );
 
