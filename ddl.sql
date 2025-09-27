@@ -1659,7 +1659,7 @@ create table public.organization_bank_account_saldos -- Ushbu jadvalda tashkilot
     datetime_created timestamp(6) not null, -- ma'lumot yaratilgan sana va vaqt
     datetime_updated timestamp(6) not null, -- ma'lumot yangilangan sana va vaqt
     account_name     varchar(255), -- hisob nomi
-    account_number   varchar(255), -- hisob raqami (qoldiqlar haqidagi ma'lumotlar so'ralganda kartoteka ma'lumotlari yani account_number usutnidagi 9632 raqami bilan boshlangan qiymatlar olinmaydi(account_number NOT ILIKE '9632%'))
+    account_number   varchar(255), -- hisob raqami (har doim qat'iy ravishda qoldiqlar haqidagi ma'lumotlar so'ralganda kartoteka ma'lumotlari yani account_number usutnidagi 9632 raqami bilan boshlangan qiymatlar olinmaydi(account_number NOT ILIKE '9632%'))
     date             date, -- sana
     organization_id  bigint -- tashkilot ID raqami (eng asosiy tashkilotlar id raqamlari -> 1: Navoiyazot, 2: Maxam-Chirchiq, 3: Ammofos-Maxam, 4: Dehqonobod kaliy zavodi, 5: Qizilqum fosforit kompleksi, 6: Qo‘ng‘irot soda zavodi)
         constraint fk_organization_bank_account_saldos_organization
