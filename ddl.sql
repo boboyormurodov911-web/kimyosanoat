@@ -1892,7 +1892,7 @@ create table public.relatives -- Ushbu jadvalda hodimlarning qarindoshlari va ya
     district_id     bigint -- yashash tumani (district jadvalining id ustuni bilan bog'langan)
         constraint fkq77vecmdvt9m03653hvyhqhl0
             references public.district,
-    personal_id     bigint -- hodim ID raqami (personal jadvalining id ustuni bilan bog'langan)
+    personal_id     bigint -- qarindosh bo'lgan hodimning ID raqami (personal jadvalining id ustuni bilan bog'langan)
         constraint fkoal3mub1hr66orx8bc1hv6q3l
             references public.personal,
     region_id       bigint -- yashash viloyati (region jadvalining id ustuni bilan bog'langan)
