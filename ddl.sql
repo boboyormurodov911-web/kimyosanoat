@@ -2063,7 +2063,7 @@ create table public.staff_position -- Hodimlar lavozimi va shtatlar haqidagi jad
     department_id     bigint -- bo'lim ID raqami (department jadvalining id ustuni bilan bog'langan)
         constraint fk2rccfqg11kksq37ku44aforg5
             references public.department,
-    personal_limit    integer, -- shtat bo'yicha limit. Zavodlardagi shtatlar sonini aniqlash uchun har doim qat'iy ravishda zavoddagi ishdan bo'shatilgan hodimlar sonini hisoblab chiqarib ushbu jadvalning personal_limit ustunidan ayirib chiqarish kerak: SELECT sum(sp.personal_limit) - (select count(*) from personal p where p.status = 'Bo`shatilgan') FROM staff_position AS sp. Ushbu example queryda hech qanaqa JOIN amalga oshirish kerak emas!
+    personal_limit    integer, -- shtat bo'yicha limit. Zavodlardagi shtatlar sonini aniqlash uchun har doim qat'iy ravishda zavoddagi ishdan bo'shatilgan hodimlar sonini hisoblab chiqarib ushbu jadvalning personal_limit ustunidan ayirib chiqarish kerak: SELECT sum(sp.personal_limit) - (select count(*) from personal p where p.status = 'Bo`shatilgan') FROM staff_position AS sp. Ushbu example queryda hech qanaqa JOIN amalga oshirish kerak emas! Faqatgina personal jadvalidan ishdan bo'shatilgan hodimlar sonini hisoblab chiqarib, staff_position jadvalidagi personal_limit ustunidan ayirish kerak. Ushbu ayirish amalini har doim barqaror ravishda amalga oshirish kerak.
     position_id       bigint -- lavozim ID raqami
 );
 
