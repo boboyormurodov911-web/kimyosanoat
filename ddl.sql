@@ -1465,7 +1465,7 @@ create table public.personal -- Ushbu jadvalda hodimlarning shaxsiy ma'lumotlari
     position_id             bigint  -- hodimning lavozim ID raqami (position jadvalining id ustuni bilan bog'langan)
         constraint dkwin48384n9fju28j
             references public.position(id),
-    department_id           bigint  -- hodimning bo'lim ID raqami (department jadvalining id ustuni bilan bog'langan)
+    department_id           bigint  -- hodimning bo'lim ID raqami
         constraint fk33i80qi0r82hlhoaern2972c8
             references public.department,
     status                  varchar(255) -- hodimning ish holati ("Bo`shatilgan", "Ish faoliyatida", "Noma'lum")
