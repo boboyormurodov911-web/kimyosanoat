@@ -1579,7 +1579,7 @@ create table public.personal_check -- Asosiy hodimlar jadvali, bu jadvalda barch
     middle_name             varchar(255), -- otasining ismi
     nationality             varchar(255), -- millati
     one_cid                 varchar(255), -- 1C dasturidagi ID raqami
-    organization_id         bigint, -- tashkilot ID raqami (organization jadvalining id ustuni bilan bog'langan)
+    organization_id         bigint, -- tashkilot ID raqami, organization jadvalining id ustuni bilan bog'langan (1: Navoiyazot, 2: Maxam-Chirchiq, 3: Ammofos-Maxam, 4: Dehqonobod kaliy zavodi, 5: Qizilqum fosforit kompleksi)
     parent_department_id    varchar(255), -- ota bo'lim ID raqami
     parent_department_name  varchar(255), -- yuqori bo'lim nomi
     passport_series_number  varchar(255), -- passport seriya raqami
