@@ -1761,7 +1761,7 @@ create table public.staff_position -- Hodimlar lavozimi va shtatlar haqidagi jad
     position_id       bigint -- lavozim ID raqami
 );
 
-create table public.staff_position_personal -- Ushbu jadvalda hodimlarning lavozimlari va hodimlar haqida ma'lumotlar saqlanadi, tashkilotlardagi ishlaydigan hodimlar sonini chiqarishda ushbu jadvaldan foydalanish kerak. Many to Many Table. Har doim staff_position va personal jadvallarining har ikkalasiga JOIN qilish kerak. staff_position_personal jadvalidan huddi shunaqa JOIN qilib chiqariladi va har doim qat'iy ravishda shu query bo'yicha hodimlar sonini olish kerak va har doim ikkita JOIN amalga oshirish kerak: select count(personal_id) from staff_position_personal join staff_position as sp on staff_position_personal.staff_position_id = sp.id join personal as p on staff_position_personal.personal_id = p.id where p.status = 'Ish faoliyatida' and sp.organization_stri = '<tashkilot_stir_raqami>'. Muhim: Lekin bu querylar shtatlar sonini chiqarishda ishlatilmaydi! Shtatlar sonini chiqarishda yuqorida aytilganidek personal_limit ustunidan va ishdan bo'shatilgan hodimlar sonidan ayirish orqali hisoblanadi!
+create table public.staff_position_personal -- Ushbu jadvalda hodimlarning lavozimlari haqida ma'lumotlar saqlanadi
 (
     staff_position_id bigint not null -- staff_position jadvalidagi id ustuni bilan tekshirish kerak
         constraint fkenwbelkxri3j1jo9cxwwhr4ex
