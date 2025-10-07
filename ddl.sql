@@ -1601,9 +1601,9 @@ create table public.personal_check -- Asosiy hodimlar jadvali, bu jadvalda barch
     military_ticket_number  varchar(255), -- hodimning harbiy biljet raqami
     phone_number            varchar(255), -- hodimning telefon raqami
     place_of_birth          varchar(255), -- hodimning tug'ilgan joyi
-    position                varchar(255), -- hodimning lavozimi (shtatlar sonini chiqarishda ushbu ustundan null bo'lmaganlarini ajratib chiqarish kerak)
+    position                varchar(255), -- hodimning lavozimi (Tashkilotlardagi shtatlar sonini chiqarish uchun ushbu position null bo'lmaganlarini ajratib chiqarish kerak)
     region                  varchar(255), -- hodim yashaydigan viloyat
-    status                  varchar(255) -- hodimning ish holati. "FIRED" - ishdan bo'shatilgan, "WORKING" - ish faoliyatida, "DEKRET" - dekretda (shtatlar sonini chiqarishda ushbu ustundan "FIRED" bo'lmaganlarini ajratib chiqarish kerak)
+    status                  varchar(255) -- hodimning ish holati. "FIRED" - ishdan bo'shatilgan, "WORKING" - ish faoliyatida, "DEKRET" - dekretda (Tashkilotlardagi shtatlar sonini chiqarish uchun ushbu ishdan bo'shatilgan hodimlarni ajratib chiqarish kerak)
 );
 
 create table public.relatives -- Ushbu jadvalda hodimlarning qarindoshlari va yaqinlari haqida ma'lumotlar saqlanadi, tashkilotlar bo'yicha qarindoshlarni tanlash public.personal jadvalidagi organization_stir ustunida ko'rsatilgan (hodimlarning qarindoshlarini tanlashda ushbu shart bilan tanlash kerak -> is_deleted = false)
