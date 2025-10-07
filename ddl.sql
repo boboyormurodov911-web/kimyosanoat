@@ -1502,7 +1502,7 @@ create table public.document -- Ushbu jadvalda hodimlarni ishga olish va ishdan 
     is_generated       boolean -- hujjat tizim tomonidan yaratilganligi (true/false)
 );
 
-create table public.income_outcome -- Ushbu jadvalda tashkilotlardagi hodimlarning kirish-chiqish harakatlari haqida ma'lumotlar saqlanadi
+create table public.income_outcome -- Ushbu jadvalda tashkilotlarga kirish va chiqish harakatlari haqida ma'lumotlar saqlanadi
 (
     id               bigint       not null -- ID raqam (primary key)
         primary key,
