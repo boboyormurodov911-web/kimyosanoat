@@ -1471,7 +1471,7 @@ create table public.personal -- Ushbu jadvalda hodimlarning shaxsiy ma'lumotlari
     status                  varchar(255) -- ish holati ("Bo`shatilgan", "Ish faoliyatida", "Noma'lum")
 );
 
-create table public.department_personal -- Ushbu jadvalda bo'limlarga tegishli hodimlar haqida ma'lumotlar saqlanadi (Many-to-Many Table)
+create table public.department_personal -- Bo'limlar va hodimlarni bog'laydigan Many-to-Many Table
 (
     department_id bigint not null -- bo'lim ID raqami (department jadvalining id ustuni bilan bog'langan)
         constraint fk11monipx5pv8dvij2rgsytrme
