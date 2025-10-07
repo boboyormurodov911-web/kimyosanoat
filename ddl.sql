@@ -1763,10 +1763,10 @@ create table public.staff_position -- Ishchilar lavozimi va shtatlar haqidagi ja
 
 create table public.staff_position_personal -- Ushbu jadvalda ishchilarning lavozimlari haqida ma'lumotlar saqlanadi
 (
-    staff_position_id bigint not null -- staff_position jadvalidagi id ustuni bilan tekshirish kerak
+    staff_position_id bigint not null -- staff_position jadvalidagi id ustuni bilan bog'langan
         constraint fkenwbelkxri3j1jo9cxwwhr4ex
             references public.staff_position,
-    personal_id       bigint not null -- personal jadvalidagi id ustuni bilan tekshirish kerak
+    personal_id       bigint not null -- personal jadvalidagi id ustuni bilan bog'langan
         constraint fk4g6cca23bg6rac107ys84xohl
             references public.personal,
     primary key (staff_position_id, personal_id)
